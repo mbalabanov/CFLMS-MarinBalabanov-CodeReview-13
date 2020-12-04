@@ -36,10 +36,6 @@
                         <p>{{ event.datetime ? event.datetime|date('D, M j, Y, H:i') : '' }} Hr.</p>
                         <p>{{ event.address }}</p>
 
-                        <p>
-                            <a href="{{ path('event_show', {'id': event.id}) }}" class="btn btn-danger btn-sm m-1">Show</a>
-                            <a href="{{ path('event_edit', {'id': event.id}) }}" class="btn btn-danger btn-sm m-1">Edit</a>
-                        </p>
                     </div>
                 {% else %}
                     <div class="col-md-12">
