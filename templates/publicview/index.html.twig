@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event index{% endblock %}
+{% block title %}Big Events{% endblock %}
 
 {% block body %}
     <div class="row mt-4 mb-3">
         <div class="col-md-10 offset-md-1">
             <h2 class="text-danger"><i class="fas fa-theater-masks"></i> Events in Vienna</h2>
             <p class="text-danger">Search over 10000 Events in Vienna</p>
+            {% if app.user %}<a class="btn btn-danger" href="{{ path('event_new') }}"><i class="far fa-plus-square"></i> Create new event</a>{% endif %}
         </div>
     </div>
     <div class="row">
@@ -28,14 +29,55 @@
             <div class="row mb-5">
 
                 {% for event in events %}
-                    <div class="col-md-4 p-2 mb-2">
+                    <div class="col-md-4 p-2">
 
-                        <a href="{{ path('event_show', {'id': event.id}) }}"><img src="{{ asset(event.image) }}" class="img-fluid rounded-lg my-2" alt="{{ event.name }}"/></a>
+                        <img src="{{ asset(event.image) }}" class="img-fluid rounded-lg my-2" alt="{{ event.name }}" data-toggle="modal" data-target="#eventModal{{ event.id }}"/>
 
-                        <h4><a href="{{ path('event_show', {'id': event.id}) }}" class="text-danger text-decoration-none">{{ event.name }}</a></h4>
+                        <h4 class="font-weight-normal"><a href="" class="text-danger text-decoration-none" data-toggle="modal" data-target="#eventModal{{ event.id }}">{{ event.name }}</a></h4>
                         <p>{{ event.datetime ? event.datetime|date('D, M j, Y, H:i') : '' }} Hr.</p>
                         <p>{{ event.address }}</p>
 
+
+                        <div class="modal fade" id="eventModal{{ event.id }}" tabindex="-1" aria-labelledby="eventModal{{ event.id }}Label" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="eventModal{{ event.id }}Label">{{ event.name }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{{ asset(event.image) }}" class="img-fluid rounded-lg my-2" alt="{{ event.name }}"/>
+                                        <h4 class="font-weight-normal">{{ event.name }}</h4>
+                                        <h5><span class="badge badge-danger">{{ event.type }}</span></h5>
+                                        <p><strong>Event ID: {{ event.id }}</strong></p>
+                                        <p><strong>Date &amp; Time:</strong> {{ event.datetime ? event.datetime|date('D, M j, Y, H:i') : '' }} Hr.</p>
+                                        <p><strong>Location:</strong> {{ event.address }}</p>
+                                        <p><strong>Email address:</strong> {{ event.email }}</p>
+                                        <p><strong>Phone number:</strong> {{ event.phone }}</p>
+                                        <p><strong>Website:</strong> <a href="{{ event.url }}" target="_blank">{{ event.url }}</a></p>
+                                        <p><strong>Description:</strong></p>
+                                        <p>{{ event.description }}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        
+                                            <a href="{{ path('event_show', {'id': event.id}) }}" class="btn btn-danger">Details Page</a>
+                                            {% if app.user %}
+                                                <a href="{{ path('event_edit', {'id': event.id}) }}" class="btn btn-primary">Edit Event</a>
+                                            {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <p class="text-center">
+                            <a href="{{ path('event_show', {'id': event.id}) }}" class="btn btn-danger btn-sm m-1">Details Page</a>
+                            {% if app.user %}
+                                <a href="{{ path('event_edit', {'id': event.id}) }}" class="btn btn-primary btn-sm m-1">Edit Event</a>
+                            {% endif %}
+                        </p>
                     </div>
                 {% else %}
                     <div class="col-md-12">

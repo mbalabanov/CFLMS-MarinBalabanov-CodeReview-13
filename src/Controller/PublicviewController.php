@@ -21,4 +21,14 @@ class PublicviewController extends AbstractController
             'events' => $eventRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/{id}/show", name="event_show", methods={"GET"})
+     */
+    public function show(Event $event): Response
+    {
+        return $this->render('publicview/show.html.twig', [
+            'event' => $event,
+        ]);
+    }
 }
