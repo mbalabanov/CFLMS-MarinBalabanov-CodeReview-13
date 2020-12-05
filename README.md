@@ -27,3 +27,6 @@ The repository contains a DB with example items at https://github.com/mbalabanov
 Start the application with ```php bin/console server:run```
 
 ![Screenshot of this project](public/assets/img/screenshot.png)
+
+## Use
+Initially you can only see the events without being able to edit or delete existing items and create new items. Please go to the top right menu with __My Account__ and _login_ using ```user@gmail.com``` and ```123123``` or _register_ a new user.
