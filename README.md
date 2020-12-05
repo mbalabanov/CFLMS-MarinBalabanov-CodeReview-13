@@ -25,3 +25,5 @@ To install this project, please clone the __repository__ or download the __ZIP f
 The repository contains a DB with example items at https://github.com/mbalabanov/CFLMS-MarinBalabanov-CodeReview-13/blob/main/db-export/cr13_marinbalabanov_bigevents.sql Import this to your database and change the env variables for the DB in the _.env_ file.
 
 Start the application with ```php bin/console server:run```
+
+![Screenshot of this project](public/assets/img/screenshot.png)
