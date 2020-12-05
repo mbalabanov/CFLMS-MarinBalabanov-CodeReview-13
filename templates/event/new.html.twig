@@ -3,9 +3,11 @@
 {% block title %}New Event{% endblock %}
 
 {% block body %}
-    <h1>Create new Event</h1>
-
-    {{ include('event/_form.html.twig') }}
-
-    <a href="{{ path('publicview') }}">back to list</a>
+    <div class="row my-5">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="font-weight-normal">New Event</h2>
+            <a href="{{ path('publicview') }}" class="btn btn-danger">Back to List</a>
+            {{ include('event/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}
