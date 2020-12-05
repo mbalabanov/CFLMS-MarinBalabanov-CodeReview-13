@@ -1,5 +1,4 @@
-# CFLMS CodeReview 13
-Marin Balabanov
+# CFLMS CodeReview 13 (Marin Balabanov)
 
 This is an exercise project for a fictional global event management company. This web application enables users to see all available events, and - if they are logged in - to edit and delete them. 
 
