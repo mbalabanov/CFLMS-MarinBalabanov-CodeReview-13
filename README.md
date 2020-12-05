@@ -17,7 +17,11 @@ These are the data fields available for each event:
 The exercise is modeled on the official website of WienTourismus: https://events.wien.info/en/
 
 ## Installation
+
+Before you start, please make sure you have installed __PHP__, __Composer__  and __Symfony__.
+
 To install this project, please clone the __repository__ or download the __ZIP file__ at https://github.com/mbalabanov/CFLMS-MarinBalabanov-CodeReview-13/blob/main/CFLMS-MarinBalabanov-CodeReview-13.zip (Out of file size considerations, please kindly note that the ZIP does not include the "var" and "vendor" directories. They will be installed when you run ```composer install```)
 
-The repository contains a DB with example items at: https://github.com/mbalabanov/CFLMS-MarinBalabanov-CodeReview-13/blob/main/db-export/cr13_marinbalabanov_bigevents.sql
+The repository contains a DB with example items at https://github.com/mbalabanov/CFLMS-MarinBalabanov-CodeReview-13/blob/main/db-export/cr13_marinbalabanov_bigevents.sql Import this to your database and change the env variables for the DB in the _.env_ file.
 
+Start the application with ```php bin/console server:run```
