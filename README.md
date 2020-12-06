@@ -32,3 +32,8 @@ Initially you can only see the events without being able to edit or delete exist
 When you are logged in as a user, you will see __Create New Event__ in the navigation and __Edit Event__ beneath the listing of each event.
 
 ![Screenshot of this project](public/assets/img/screenshot.png)
+
+### Filter by Type
+A requirement for this project was the function to filter by event type. This can be found in the right side bar. During a filtered event list, you can reset the search filter by clicking on the button in the center.
+
+![Filter by Type](public/assets/img/screenshot-filter.png)
