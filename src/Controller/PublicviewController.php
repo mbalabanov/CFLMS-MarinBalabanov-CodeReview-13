@@ -20,7 +20,7 @@ class PublicviewController extends AbstractController
         $searchterm = '';
         return $this->render('publicview/index.html.twig', [
             'searchterm' => $searchterm,
-            'events' => $eventRepository->findAll(),
+            'events' => $eventRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
 

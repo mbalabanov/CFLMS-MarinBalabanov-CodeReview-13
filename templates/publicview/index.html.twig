@@ -12,10 +12,17 @@
     </div>
     <div class="row">
         <div class="col-md-1 text-center">
-            <a href="#" class="btn btn-white btn-sm text-danger text-uppercase my-2"><i class="fas fa-map-marked-alt fa-3x"></i><br>Map</a>
-            <a href="#" class="btn btn-white btn-sm text-danger text-uppercase my-2"><i class="fas fa-info fa-3x"></i><br>Info</a>
-            <a href="#" class="btn btn-white btn-sm text-danger text-uppercase my-2"><i class="fas fa-bed fa-3x"></i><br>Hotels</a>
-            <a href="#" class="btn btn-white btn-sm text-danger text-uppercase my-2"><i class="fas fa-theater-masks fa-3x"></i><br>Events</a>
+            <a href="#" class="btn btn-white btn-sm text-danger text-uppercase my-2"><i class="fas fa-map-marked-alt fa-2x"></i><br>Map</a>
+            <a href="#" class="btn btn-white btn-sm text-danger text-uppercase my-2"><i class="fas fa-info fa-2x"></i><br>Info</a>
+            <a href="#" class="btn btn-white btn-sm text-danger text-uppercase my-2"><i class="fas fa-bed fa-2x"></i><br>Hotels</a>
+            <a href="#" class="btn btn-white btn-sm text-danger text-uppercase my-2"><i class="fas fa-theater-masks fa-2x"></i><br>Events</a>
+            <span class="d-block d-sm-none mb-4">
+                {% if not app.user %}
+                    <a class="btn btn-danger mx-1 " href="/login">Login</a>
+                    <a class="btn btn-danger mx-1" href="/register">Register</a>
+                {% endif %}
+                {% if app.user %}<a class="btn btn-danger btn-lg mx-1" href="/logout">logout</a>{% endif %}
+            </span>
         </div>
 
         <div class="col-md-8">
@@ -89,7 +96,7 @@
                     </div>
                 {% else %}
                     <div class="col-md-12">
-                        <h3 class="text-danger">No records found</td>
+                        <h3 class="text-danger text-center">No records found</h3>
                     </div>
                 {% endfor %}
 
@@ -103,7 +110,7 @@
 
                 <div class="dropdown mb-4">
                     <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select Event Type
+                        Event Types
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <a href="/search?search=type&term=Ballet" class="dropdown-item" type="button">Ballet</a>
