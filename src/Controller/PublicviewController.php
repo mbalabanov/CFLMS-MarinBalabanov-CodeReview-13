@@ -23,8 +23,8 @@ class PublicviewController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/show", name="event_show", methods={"GET"})
-     */
+    * @Route("/{id}/show", name="event_show", methods={"GET"})
+    */
     public function show(Event $event): Response
     {
         return $this->render('publicview/show.html.twig', [
