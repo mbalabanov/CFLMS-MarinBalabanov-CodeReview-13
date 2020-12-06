@@ -26,13 +26,21 @@
                 </div>
             </div>
 
+            {% if searchterm %}
+            <div class="row">
+                <div class="col-md-6 offset-md-3 alert alert-warning text-center">
+                    These are the results of the search term <strong>{{searchterm}}</strong>.<br/><a href="/" type="button" class="btn btn-danger btn-sm m-2">Reset Search</a>
+                </div>
+            </div>
+            {% endif %}
+
             <div class="row mb-5">
 
                 {% for event in events %}
                     <div class="col-md-4 p-2">
 
                         <img src="{{ asset(event.image) }}" class="img-fluid rounded-lg my-2" alt="{{ event.name }}" data-toggle="modal" data-target="#eventModal{{ event.id }}"/>
-                        <p><span class="badge badge-danger">{{ event.type }}</span></p>
+                        <p><a href="/search?search=type&term={{ event.type }}" class="badge badge-danger">{{ event.type }}</a></p>
                         <h4 class="font-weight-normal"><a href="#" class="text-danger text-decoration-none" data-toggle="modal" data-target="#eventModal{{ event.id }}">{{ event.name }}</a></h4>
                         <p>{{ event.datetime ? event.datetime|date('D, M j, Y, H:i') : '' }} Hr.</p>
                         <p>{{ event.address }}</p>

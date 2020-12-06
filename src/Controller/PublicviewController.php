@@ -17,7 +17,9 @@ class PublicviewController extends AbstractController
      */
     public function index(EventRepository $eventRepository): Response
     {
+        $searchterm = '';
         return $this->render('publicview/index.html.twig', [
+            'searchterm' => $searchterm,
             'events' => $eventRepository->findAll(),
         ]);
     }

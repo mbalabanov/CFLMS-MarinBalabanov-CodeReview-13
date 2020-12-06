@@ -20,7 +20,8 @@ class SearchFilterController extends AbstractController
         $searchterm = dump($request->query->get('term'));
 
         return $this->render('publicview/index.html.twig', [
-                'events' => $eventRepository->findBy(['type' => $searchterm], ['name' => 'ASC']),
+            'searchterm' => $searchterm,
+            'events' => $eventRepository->findBy(['type' => $searchterm], ['name' => 'ASC']),
         ]);
 
     }
